@@ -23,7 +23,8 @@ void pop(){
   if(isempty()){
     return  ; 
   }
-  int value = stack[top--] ;
+  //int value = stack[top--] ;
+  top-- ;
   return  ;
 }
 int peek(){
@@ -35,7 +36,7 @@ int peek(){
 
 void display(){
   if(isempty()){
-    cout<<" STACK IS FULL !"<<endl ;
+    cout<<" STACK IS EMPTY !"<<endl ;
     return ;
   }
   for(int i = top ; i >= 0  ; i--){

@@ -1,5 +1,5 @@
 // either 0 or 2 children  == full binary tree
-// all level are completely filled except the last level , fill from left to right 
+// all level are completely filled except the last level , fill from left to right == complete binary tree 
 
 /// binary tree representation throw linked list
 

@@ -34,7 +34,7 @@ void enqueue(int value){
    queue[rear] = value ;
    return ;
 }
-void dequeue(){
+int  dequeue(){
 
   if(isempty()){
     return ;
@@ -43,10 +43,13 @@ void dequeue(){
     front = -1 ;
     rear = -1 ;
     // only in one condition when 1 element present 
+    
   }
-  else{
+  
+    int value = queue[front] ;
     front = front+1 % size ;
-  }
+  
+  return value ;
 
 }
 
@@ -74,7 +77,7 @@ int main(){
   enqueue(20);
   enqueue(30);
 
-  dequeue();
+  cout<<dequeue();
   display();
   return 0 ;
 }
