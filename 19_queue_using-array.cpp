@@ -34,16 +34,17 @@ void enqueue(int value){
   queue[rear] = value ;
   return  ;
 }
-void dequeue(){
+int dequeue(){
   if(isempty()){
     return  ;
   }
   // we consider those elements which inbetween in front and rear 
+  int val = queue[front] ;
   front++ ;
   if(front > rear){
     front = rear = -1 ;
   }
-  return  ;
+  return val ;
 }
 
 int peek(){
@@ -70,8 +71,8 @@ int main(){
   enqueue(20) ;
   enqueue(30) ;
   enqueue(40);
-  dequeue();
-  dequeue();
+  cout<<dequeue();
+  cout<<dequeue();
 
   cout<<peek()<<endl ; // for find front element 
 

@@ -1,6 +1,7 @@
 // heap is a complete binary tree 
 // two type of heap present minheap and max heap 
 // in max heap largest element present in tree as a root node 
+//A heap is a special tree-based data structure that always keeps the highest or lowest value at the top.
 
 ///////////////////////////////////////////this is all for max heap///////////////////////////////////////////////////////////////////
 #include<iostream>
@@ -46,7 +47,7 @@ class heap{
   // 2 . remove last node 
   // 3 . propogate root node to its correct position
 
-  void deletefromHeap(){           // we delete root node ! 
+  /*void deletefromHeap(){           // we delete root node ! 
     if(size == 0){  // base condition 
       cout<< " NOTHING TO DELETE !" << endl ;
       return ;
@@ -77,7 +78,36 @@ class heap{
       }
       
     }
-  }
+  }*/
+ void deletefromHeap() {
+    if(size == 0){
+        cout << "NOTHING TO DELETE!" << endl;
+        return;
+    }
+
+    arr[1] = arr[size];
+    size--;
+
+    int i = 1;
+    while(true){ // loop only stop when break occur 
+        int left = 2*i;
+        int right = 2*i + 1;
+        int largest = i;
+
+        if(left <= size && arr[left] > arr[largest])
+            largest = left;
+
+        if(right <= size && arr[right] > arr[largest])
+            largest = right;
+
+        if(largest == i)
+            break;
+
+        swap(arr[i], arr[largest]);
+        i = largest;
+    }
+}
+
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -167,3 +197,11 @@ int main(){
   cout<<endl ;
   return 0 ;
 }
+
+/*
+📝 Why Heapify Important?
+
+✔ Used in Heap Sort
+✔ Used in building a heap in O(n)
+✔ Used after deletion/insertion in heap
+*/

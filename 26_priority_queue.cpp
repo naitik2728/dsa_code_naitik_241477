@@ -1,3 +1,24 @@
+// max priority queue using binary heap 
+/*  iska implementation 3 tariko se ho sakta hai:
+1️⃣ Unordered Array / Linked List
+
+Insert → O(1)
+
+Remove max → O(n) (linear search)
+
+2️⃣ Ordered Array / Linked List
+
+Insert → O(n)
+
+Remove max → O(1)
+
+3️⃣ Binary Heap (BEST) ← YOUR CODE
+
+Insert → O(log n)
+
+Remove max → O(log n)
+
+Get max → O(1) */
 #include <iostream>
 using namespace std;
 

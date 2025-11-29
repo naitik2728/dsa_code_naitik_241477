@@ -19,13 +19,13 @@ void push(int value){
   stack[++top] = value ;
 }
 
-void pop(){
+int pop(){
   if(isempty()){
     return  ; 
   }
-  //int value = stack[top--] ;
-  top-- ;
-  return  ;
+  int value = stack[top--] ;
+  
+  return value  ;
 }
 int peek(){
   if(isempty())
