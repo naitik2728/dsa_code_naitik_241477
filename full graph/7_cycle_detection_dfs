@@ -1,0 +1,73 @@
+#include<iostream>
+#include<vector>
+using namespace std ;
+
+// sc == o(n) + o(n) ==== o(n)
+// recursion stack and visitd array
+// tc ============ o(n+2e)
+
+class Solution{
+
+  private:
+  bool dfs(int node , int parent , vector<int> adj[] , vector<int> &vis){
+
+    vis[node] = 1 ;
+    for(int i = 0 ; i < adj[node].size() ; i++){
+      int child = adj[node][i] ;
+
+      if(!vis[child]){
+        if(dfs(child , node , adj , vis))
+        return true ; // node == parent 
+      }
+      else if(child != parent){
+        return true ;
+      }
+    }
+
+  }
+
+  public:
+  bool isCycle(int v , vector<int> adj[]){
+    vector<int> vis(v , 0) ;
+
+    for(int i = 0 ; i < v ; i++){
+      if(!vis[i]){
+        if(dfs(i , -1 , adj , vis))
+        return true ;
+      }
+    }
+  }
+} ;
+int main(){
+
+  int v , e ;
+  cout<<"enter nodes and edges :" ;
+  cin>> v >> e ;
+
+ vector<int> adj[v] ;
+
+ // vector<int> == a dynamic array of integers 
+ // adj[v] == create an array of size  of v 
+
+ // total mean adj is array which have and vector<int> type element and size is v
+
+ cout<<"ENTER EDGES :" ;
+
+ for(int i = 0 ; i < e ; i++){
+  int u , v ;
+  cin>> u >> v ;
+
+  adj[u].push_back(v) ;
+  adj[v].push_back(u) ; // due to undirected 
+
+  Solution obj ;
+
+  if(obj.isCycle(v , adj)) 
+  cout<<" CYCLE DETECTED" ;
+ 
+ else{
+  cout<<" NO CYCLE" ;
+ }
+  return 0 ;
+}
+}
